@@ -11,7 +11,11 @@ import javax.swing.filechooser.FileSystemView;
  */
 public class Data {
 	
+	
+	//INI
 	public static boolean DOWNLOAD_FILES = false;
+	public static boolean CHECKS;
+	
 	//Misc
 	public static File ROOT = FileSystemView.getFileSystemView().getRoots()[0]; //desktop
 	
@@ -19,7 +23,7 @@ public class Data {
 	public static String APP_NAME = "SplitKit";
 	public static String CODENAME = "Alpha";
 	public static int MAJOR_VERSION = 1;
-	public static int MINOR_VERSION = 14;
+	public static int MINOR_VERSION = 15;
 	
 	//Files
 	public static File dir = new File("C:/" + APP_NAME); 
