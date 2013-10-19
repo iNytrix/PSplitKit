@@ -3,10 +3,14 @@ package com.soulsplit.core;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Map;
+import java.util.Set;
 
+import org.ini4j.Ini;
+import org.ini4j.InvalidFileFormatException;
 import org.ini4j.Wini;
 
-public class Ini {
+public class INI {
 
 	 public static void getINI(String filename) throws IOException
 	    {
@@ -22,6 +26,14 @@ public class Ini {
 		 ini.put("Account", "Username", "");
 		 ini.put("Account", "Password", "");
 		 ini.store();
+		 
+	 }
+	 
+	 public static String getSelectionValueof(String value) throws IOException{
+		 Wini ini = new Wini(new File(Data.ini.getAbsolutePath()));
+		Map<String, String> map = ini.get("Settings");
+		String v = map.get(value);
+		return v;
 		 
 	 }
 }
