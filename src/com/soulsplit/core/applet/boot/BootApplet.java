@@ -1,36 +1,29 @@
 package com.soulsplit.core.applet.boot;
 
 import java.awt.BorderLayout;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 
 import javax.swing.JDialog;
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.WindowConstants;
 import javax.swing.filechooser.FileSystemView;
 
-import org.ini4j.InvalidFileFormatException;
-import org.ini4j.Wini;
-
 import com.soulsplit.core.Data;
-import com.soulsplit.core.Ini;
+import com.soulsplit.core.INI;
 import com.soulsplit.core.api.utils.Utils;
+import com.soulsplit.core.applet.login.LoginApplet;
 import com.soulsplit.core.updater.Updater;
 
 public class BootApplet extends JFrame{
-		
+		static LoginApplet gui = new LoginApplet();
+	
 	public BootApplet(){
 		
 		JDialog dialog = new JDialog();
 		JLabel label = new JLabel();
 		
-		dialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+		dialog.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		dialog.setResizable(false);
 		dialog.setSize(100,100);
 		dialog.setLocationRelativeTo(null);
@@ -44,13 +37,20 @@ public class BootApplet extends JFrame{
 		if(!Data.ini.exists()){
 			if(Data.ini.createNewFile());
 			Utils.log("ini");
-		Ini.setINI();
+		INI.setINI();
 		}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			
 }
+		try {
+			INI.getSelectionValueof("Version");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		dialog.dispose();
+	
 	}
 }
 	
