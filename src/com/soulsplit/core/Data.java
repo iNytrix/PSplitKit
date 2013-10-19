@@ -22,7 +22,7 @@ public class Data {
 	public static int MINOR_VERSION = 14;
 	
 	//Files
-	public static File dir = new File("C:/" + APP_NAME); //Creates at root of computer at all OS.
+	public static File dir = new File("C:/" + APP_NAME); 
 	public static File res = new File("C:/" + APP_NAME + "/resources");
 	public static String VERSION_URL = "https://dl.dropbox.com/s/fnalrn16h651drj/version.txt";
 	public static File ini = new File("C:/" + APP_NAME + "/settings.ini");
