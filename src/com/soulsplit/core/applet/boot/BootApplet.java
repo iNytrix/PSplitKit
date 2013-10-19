@@ -15,6 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.WindowConstants;
 import javax.swing.filechooser.FileSystemView;
 
+import org.ini4j.InvalidFileFormatException;
 import org.ini4j.Wini;
 
 import com.soulsplit.core.Data;
@@ -39,9 +40,16 @@ public class BootApplet extends JFrame{
 		System.out.println(FileSystemView.getFileSystemView().getRoots()[0]);
 		label.setText("Please wait a minute!");
 		Updater.getLatestVersion();
+		try {
 		if(!Data.ini.exists()){
-		//TODO Create ini File
-
+			if(Data.ini.createNewFile());
+			Utils.log("ini");
+		Ini.setINI();
+		}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
 }
 	}
 }

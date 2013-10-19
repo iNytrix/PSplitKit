@@ -1,10 +1,15 @@
 package com.soulsplit.core.api.utils;
 
+import java.awt.Image;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.sql.Time;
+
+import javax.imageio.ImageIO;
 
 public class Utils {
 
@@ -35,4 +40,14 @@ public class Utils {
 	public static void log(String line){
 		System.out.println(line);
 	}
+	
+	public static Image getImage(String url) {
+		try {
+			return ImageIO.read(new URL(url));
+		} catch (IOException e) {
+			return null;
+		}
+	}
+	
+	
 }

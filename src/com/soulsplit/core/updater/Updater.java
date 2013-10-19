@@ -18,7 +18,7 @@ public class Updater {
 	static File dir = new File("C:/" + Data.APP_NAME);
 	  static File cv = new File("C:/SplitKit/cversion.txt");
 
-	  public static int c_version = Data.MAJOR_VERSION + Data.MINNOR_VERSION;
+	  public static int c_version = Data.MAJOR_VERSION + Data.MINOR_VERSION;
 	  public static int n_version;
 
 	  public static void main(String[] args)
