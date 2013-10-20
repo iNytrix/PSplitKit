@@ -1,11 +1,10 @@
 package com;
-
-import com.soulsplit.core.applet.boot.BootApplet;
+import com.soulsplit.core.applet.splashscreen.Splashscreen;
 
 //Main class
 public class boot {
 
-	static BootApplet gui = new BootApplet();
+	static Splashscreen splash = new Splashscreen();
 
 
 	public static void main(String[] args) throws Exception {
