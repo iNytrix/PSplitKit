@@ -35,7 +35,7 @@ public class Splashscreen{
 			e.printStackTrace();
 		}
 		screen.dispose();
-		LoginApplet gui = new LoginApplet();
+		LoginApplet applet = new LoginApplet();
 	}
 }
 
