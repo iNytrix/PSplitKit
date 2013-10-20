@@ -10,7 +10,7 @@ import javax.swing.WindowConstants;
 import javax.swing.filechooser.FileSystemView;
 
 import com.soulsplit.core.Data;
-import com.soulsplit.core.INI;
+import com.soulsplit.core.api.utils.Ini;
 import com.soulsplit.core.api.utils.Utils;
 import com.soulsplit.core.applet.login.LoginApplet;
 import com.soulsplit.core.updater.Updater;
@@ -37,18 +37,11 @@ public class BootApplet extends JFrame{
 		if(!Data.ini.exists()){
 			if(Data.ini.createNewFile());
 			Utils.log("ini");
-		INI.setINI();
 		}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 }
-		try {
-			INI.getSelectionValueof("Version");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		dialog.dispose();
 	
 	}
