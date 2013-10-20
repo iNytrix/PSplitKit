@@ -6,6 +6,7 @@ import java.net.URL;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JProgressBar;
 import javax.swing.JWindow;
 import javax.swing.SwingConstants;
 
@@ -17,13 +18,18 @@ import com.soulsplit.core.updater.Updater;
 public class Splashscreen{
 	
 	JWindow screen = new JWindow();
+	final JProgressBar bar = new JProgressBar(0,100); //TODO draw bar
 	
 	public Splashscreen () {
 		try {
-			screen.getContentPane().add(new JLabel("", new ImageIcon(new URL("http://imgur.com/38o9pCL.png")),SwingConstants.CENTER));
+		screen.getContentPane().add(new JLabel("", new ImageIcon(new URL("http://imgur.com/38o9pCL.png")),SwingConstants.CENTER));
 		screen.setSize(280, 180);
 		screen.setLocationRelativeTo(null);
 		screen.setVisible(true);
+		screen.add(bar);
+		
+		bar.setIndeterminate(true);
+		
 
 		Updater.getLatestVersion();
 		if(!Data.ini.exists()){
@@ -31,7 +37,6 @@ public class Splashscreen{
 		Ini.setIni();
 		}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		screen.dispose();
