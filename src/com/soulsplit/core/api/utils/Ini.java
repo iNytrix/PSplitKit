@@ -10,12 +10,7 @@ import com.soulsplit.core.Data;
 
 public class Ini {
 
-         public static void getIni(String filename) throws IOException
-            {
-                Wini ini = new Wini(new File(filename));
-                String version = ini.get("Settings", "Version", String.class);
-               
-}
+         
          public static void setIni() throws IOException
          {
                  Wini ini = new Wini(new File(Data.ini.getAbsolutePath()));
@@ -27,11 +22,11 @@ public class Ini {
                  
          }
          
-         public static String getSelectionValueof(String value) throws IOException{
+         public static String getSectionValueof(String value) throws IOException{
                  Wini ini = new Wini(new File(Data.ini.getAbsolutePath()));
                 Map<String, String> map = ini.get("Settings");
-                String v = map.get(value);
-                return v;
+                return map.get(value);
+                
                  
          }
 }
