@@ -1,14 +1,12 @@
-package com.soulsplit.core;
+package com.soulsplit.core.api.utils;
 
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.Map;
-import java.util.Set;
 
-import org.ini4j.Ini;
-import org.ini4j.InvalidFileFormatException;
 import org.ini4j.Wini;
+
+import com.soulsplit.core.Data;
 
 public class Ini {
 
