@@ -1,33 +1,38 @@
 package com.soulsplit.core.applet.login;
 
 import java.awt.BorderLayout;
+import java.io.IOException;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import javax.swing.WindowConstants;
 
 import com.soulsplit.core.Data;
 
 public class LoginApplet extends JFrame{
-	JFrame frame = new JFrame(Data.APP_NAME + " Login Panel");
-	JPanel panel = new JPanel();
-	JTextField username, password = new JTextField();
+	private JFrame frame = new JFrame(Data.APP_NAME + " Login Panel");
+	private JButton logButton = new JButton("Login");
+	private JPanel loginPanel;
 	
-
-	public LoginApplet(){
-		
-		frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-		frame.setResizable(true);
-		frame.setSize(450,300);
-		frame.setLocationRelativeTo(null);
-		frame.setVisible(true);
-		
-		frame.add(panel, BorderLayout.CENTER);
-
-		String login;
-		String password;
-		
-		
+	private JLabel usernameL, passwordL = new JLabel();
+	private JTextField usernameTxt = new JTextField(13); //chars
+	private JPasswordField passwordTxt = new JPasswordField(13); //chars
+	
+	public LoginApplet() {
+	frame.setSize(250,200);
+	frame.setLocationRelativeTo(null);
+	frame.setResizable(false);
+	frame.setVisible(true);
+	
+	loginPanel = new JPanel(new BorderLayout());
+	frame.add(loginPanel, BorderLayout.CENTER);
+	
+	loginPanel.add(logButton, BorderLayout.SOUTH);
+	
+	loginPanel.add(usernameL, BorderLayout.EAST);
+	
 	}
 }

@@ -1,7 +1,5 @@
 package com.soulsplit.core.applet.splashscreen;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 import javax.swing.ImageIcon;
@@ -20,7 +18,7 @@ public class Splashscreen{
 	JWindow screen = new JWindow();
 	final JProgressBar bar = new JProgressBar(0,100); //TODO draw bar
 	
-	public Splashscreen () {
+	public Splashscreen (){
 		try {
 		screen.getContentPane().add(new JLabel("", new ImageIcon(new URL("http://imgur.com/38o9pCL.png")),SwingConstants.CENTER));
 		screen.setSize(280, 180);
@@ -36,11 +34,12 @@ public class Splashscreen{
 			if(Data.ini.createNewFile());
 		Ini.setIni();
 		}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 		screen.dispose();
 		LoginApplet applet = new LoginApplet();
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }
 

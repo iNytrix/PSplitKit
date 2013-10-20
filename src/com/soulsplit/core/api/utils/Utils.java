@@ -7,11 +7,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.sql.Time;
 
 import javax.imageio.ImageIO;
 
-import com.soulsplit.core.updater.Updater;
 
 public class Utils {
 
