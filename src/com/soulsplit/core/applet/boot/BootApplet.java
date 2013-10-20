@@ -11,12 +11,10 @@ import javax.swing.filechooser.FileSystemView;
 
 import com.soulsplit.core.Data;
 import com.soulsplit.core.api.utils.Ini;
-import com.soulsplit.core.api.utils.Utils;
 import com.soulsplit.core.applet.login.LoginApplet;
 import com.soulsplit.core.updater.Updater;
 
 public class BootApplet extends JFrame{
-		static LoginApplet gui = new LoginApplet();
 	
 	public BootApplet(){
 		
@@ -25,7 +23,7 @@ public class BootApplet extends JFrame{
 		
 		dialog.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		dialog.setResizable(false);
-		dialog.setSize(100,100);
+		dialog.setSize(130,100);
 		dialog.setLocationRelativeTo(null);
 		dialog.setVisible(true);
 		
@@ -34,16 +32,17 @@ public class BootApplet extends JFrame{
 		label.setText("Please wait a minute!");
 		Updater.getLatestVersion();
 		try {
+			label.setText("Creating settings.");
 		if(!Data.ini.exists()){
 			if(Data.ini.createNewFile());
-			Utils.log("ini");
+		Ini.setIni();
 		}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-}
+		}
 		dialog.dispose();
-	
+		LoginApplet lg = new LoginApplet();
 	}
 }
 	

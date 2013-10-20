@@ -11,6 +11,8 @@ import java.sql.Time;
 
 import javax.imageio.ImageIO;
 
+import com.soulsplit.core.updater.Updater;
+
 public class Utils {
 
 	public static void getUrl(String link, String dir){
@@ -48,6 +50,4 @@ public class Utils {
 			return null;
 		}
 	}
-	
-	
 }

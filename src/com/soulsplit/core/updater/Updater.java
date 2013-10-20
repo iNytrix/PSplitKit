@@ -7,6 +7,7 @@ import java.net.*;
 import javax.swing.*;
 
 import com.soulsplit.core.Data;
+import com.soulsplit.core.applet.boot.BootApplet;
 
 /**
  * 
@@ -14,7 +15,9 @@ import com.soulsplit.core.Data;
  *
  */
 public class Updater {
-
+	
+	public static String log;
+	
 	static File dir = new File("C:/" + Data.APP_NAME);
 	  static File cv = new File("C:/SplitKit/cversion.txt");
 
@@ -29,7 +32,7 @@ public class Updater {
 
 	  public static boolean getLatestVersion() {
 	    if ((!dir.exists()) || (!cv.exists())) {
-	      log("Creating Directory");
+	      
 	      makeDir();
 	    } else {
 	      getUrl();
@@ -79,13 +82,10 @@ public class Updater {
 	      ex.printStackTrace();
 	    }
 	    n_version = Integer.parseInt(text);
-	    System.out.println(n_version);
 
 	    if (!isUpToDate()) {
-	      log("We're updating the tool!");
 	      update();
 	    } else {
-	      log("Tool is up to date!");
 	      setCurrentVersion();
 	    }
 	  }
@@ -105,14 +105,12 @@ public class Updater {
 	      out.write(fileData);
 	      out.close();
 	      in.close();
-	      System.out.println("Downloaded newest version!");
 	      c_version = n_version;
 	    }
 	    catch (Exception m) {
 	      System.out.println(m);
 	    }
 	    if (isUpToDate()) {
-	      log("Updated!");
 	      setCurrentVersion();
 	    }
 	  }
@@ -138,7 +136,6 @@ public class Updater {
 	  private static void makeDir() {
 	    if (!dir.exists()) {
 	      dir.mkdir();
-	      log("Dir made.");
 	    }
 	    if ((dir.exists()) && (!cv.exists())) {
 	      String text = Integer.toString(c_version);
@@ -146,15 +143,11 @@ public class Updater {
 	        BufferedWriter op = new BufferedWriter(new FileWriter(cv));
 	        op.write(text);
 	        op.close();
-	        log("cv made.");
 	      } catch (IOException e) {
 	        e.printStackTrace();
 	      }
 	    }
 
 	    getUrl();
-	  }
-	  public static void log(String line) {
-	    System.out.println(line);
 	  }
 }
