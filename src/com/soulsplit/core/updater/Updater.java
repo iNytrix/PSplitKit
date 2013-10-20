@@ -1,13 +1,10 @@
 package com.soulsplit.core.updater;
 
-import java.awt.*;
 import java.io.*;
 import java.net.*;
 
-import javax.swing.*;
 
 import com.soulsplit.core.Data;
-import com.soulsplit.core.applet.boot.BootApplet;
 
 /**
  * 
