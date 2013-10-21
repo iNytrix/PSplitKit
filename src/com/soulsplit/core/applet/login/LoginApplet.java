@@ -1,6 +1,5 @@
 package com.soulsplit.core.applet.login;
 
-<<<<<<< HEAD
 import java.awt.BorderLayout;
 import java.io.File;
 import java.io.IOException;
@@ -36,7 +35,6 @@ public class LoginApplet {
 	 * @Author Jordan/PriceJordan
 	 **/
 	
-<<<<<<< HEAD
 	public LoginApplet(){
 	frame.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 	frame.setSize(250,200);
@@ -49,7 +47,7 @@ public class LoginApplet {
 	
 	loginPanel.add(logButton, BorderLayout.SOUTH);
 	
-=======
+
 	private JFrame window = new JFrame("Login Panel");
 	private JTextField textUser;
 	private JPasswordField textPass;
@@ -152,6 +150,5 @@ public class LoginApplet {
 		panel.add(btnRegister);
 
 		window.setVisible(true);
->>>>>>> 5ee56e748ee5d6d9c23e7f1cfc6fae05d052e3d1
 	}
 }
