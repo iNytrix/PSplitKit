@@ -23,7 +23,7 @@ public class Ini {
                  
          }
          
-         public static String getSelectionValueof(String section, String value) throws IOException{
+         public static String getSectionValueof(String section, String value) throws IOException{
                  Wini ini = new Wini(new File(Data.ini.getAbsolutePath()));
                 Map<String, String> map = ini.get(section);
                 return map.get(value);
