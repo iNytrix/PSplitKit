@@ -7,6 +7,7 @@ import java.util.Map;
 import org.ini4j.Wini;
 
 import com.soulsplit.core.Data;
+import com.soulsplit.core.api.Encryption;
 
 public class Ini {
 
@@ -27,5 +28,12 @@ public class Ini {
                 Map<String, String> map = ini.get(section);
                 return map.get(value);
                  
+         }
+         
+         public static void setAccount() throws IOException{
+        		Wini ini = new Wini(new File(Data.ini.getAbsolutePath()));
+        	 ini.add("Account", "Password", Encryption.encrypt(Data.PASSWORD));
+        		ini.add("Account", "Username", Data.USERNAME);
+        		ini.store();
          }
 }
