@@ -17,11 +17,6 @@ import org.ini4j.Wini;
 import com.soulsplit.core.Data;
 import com.soulsplit.core.api.Encryption;
 
-public class LoginApplet extends JFrame{
-	private JFrame frame = new JFrame(Data.APP_NAME + " Login Panel");
-	private JButton logButton = new JButton("Login");
-	private JPanel loginPanel;
-=======
 import java.awt.*;
 import javax.swing.*;
 
@@ -29,25 +24,12 @@ import java.awt.event.*;
 import java.io.*;
 
 public class LoginApplet {
->>>>>>> 5ee56e748ee5d6d9c23e7f1cfc6fae05d052e3d1
 	
 	/**
 	 * @Author Jordan/PriceJordan
 	 **/
 	
-	public LoginApplet(){
-	frame.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-	frame.setSize(250,200);
-	frame.setLocationRelativeTo(null);
-	frame.setResizable(false);
-	frame.setVisible(true);
 	
-	loginPanel = new JPanel(new BorderLayout());
-	frame.add(loginPanel, BorderLayout.CENTER);
-	
-	loginPanel.add(logButton, BorderLayout.SOUTH);
-	
-
 	private JFrame window = new JFrame("Login Panel");
 	private JTextField textUser;
 	private JPasswordField textPass;
