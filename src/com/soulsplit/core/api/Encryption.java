@@ -10,7 +10,7 @@ public class Encryption {
 		"b", "f", "j", "n", "r", "v", 
 		"c", "g", "k", "o", "s", "w",
 		"d", "h", "l", "p", "t", "x",
-		"y", "5"
+		"y", "5",
 	};
 	
 	public static String encrypt(String text){
@@ -30,7 +30,7 @@ public class Encryption {
 			}
 		}
 
-		return replaceText;
+		return replaceText.toLowerCase();
 	}
 	
 	public static String decrypt(String text){
@@ -51,6 +51,6 @@ public class Encryption {
 			}
 		}
 		
-		return replaceText;
+		return replaceText.toLowerCase();
 	}
 }
