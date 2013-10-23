@@ -26,88 +26,101 @@ import java.io.*;
 
 public class LoginApplet {
 
-	/**
-	 * @Author Jordan/PriceJordan
-	 **/
+        /**
+         * @Author Jordan/PriceJordan
+         **/
 
-	
-	private JFrame window = new JFrame("Login Panel");
-	private JTextField textUser;
-	private JPasswordField textPass;
+        
+        private JFrame window = new JFrame("Login Panel");
+        private JTextField textUser;
+        private JPasswordField textPass;
 
-	public LoginApplet() {
-		window.setSize(299, 200);
-		window.setLocationRelativeTo(null);
-		window.setResizable(false);
-		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        public LoginApplet() {
+                window.setSize(299, 200);
+                window.setLocationRelativeTo(null);
+                window.setResizable(false);
+                window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		JPanel panel = new JPanel();
-		window.getContentPane().add(panel, BorderLayout.CENTER);
-		panel.setLayout(null);
+                JPanel panel = new JPanel();
+                window.getContentPane().add(panel, BorderLayout.CENTER);
+                panel.setLayout(null);
 
-		JButton btnLogin = new JButton("Login");
-		btnLogin.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String user = null;
-				String pass = null;
-				
-				//TODO Virtual void
-				
-			}
-		});
-		btnLogin.setBounds(10, 142, 273, 23);
-		panel.add(btnLogin);
+                JButton btnLogin = new JButton("Login");
+                btnLogin.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent e) {
+                                String user = null;
+                                String pass = null;
+                                
+                                pass = Encryption.decrypt(Ini.setSectionValueOf("Account", "Password");
+                                user = Ini.getSectionvalueOf("Account", "Username");
+                                
+                                if(!textUser.getText().equals(user) && textPass.getText().equals(pass)){
+                                	JOptionPane.showMessageDialog(null, "Incorrect username!", "Incorrect username!", JOptionPane.ERROR_MESSAGE);
+                                }
+                                if(textUser.getText().equals(user) && !textPass.getText().equals(pass)){
+                                	JOptionPane.showMessageDialog(null, "Incorrect password!", "Incorrect password!", JOptionPane.ERROR_MESSAGE);
+                                }
+                                if(!textUser.getText().equals(user) && !textPass.getText().equals(pass)){
+                                	JOptionPane.showMessageDialog(null, "Incorrect account details!", "Incorrect account details!", JOptionPane.ERROR_MESSAGE);
+                                }
+                                if(textUser.getText().equals(user) && textPass.getText().equals(pass)){
+                                	window.dispose();
+                                }
+                        }
+                });
+                btnLogin.setBounds(10, 142, 273, 23);
+                panel.add(btnLogin);
 
-		textUser = new JTextField();
-		textUser.setBounds(91, 8, 192, 20);
-		panel.add(textUser);
-		textUser.setColumns(10);
+                textUser = new JTextField();
+                textUser.setBounds(91, 8, 192, 20);
+                panel.add(textUser);
+                textUser.setColumns(10);
 
-		textPass = new JPasswordField();
-		textPass.setBounds(91, 36, 192, 20);
-		panel.add(textPass);
+                textPass = new JPasswordField();
+                textPass.setBounds(91, 36, 192, 20);
+                panel.add(textPass);
 
-		JLabel lblUsername = new JLabel("Username");
-		lblUsername.setBounds(10, 11, 71, 14);
-		panel.add(lblUsername);
+                JLabel lblUsername = new JLabel("Username");
+                lblUsername.setBounds(10, 11, 71, 14);
+                panel.add(lblUsername);
 
-		JLabel lblPassword = new JLabel("Password");
-		lblPassword.setBounds(10, 39, 71, 14);
-		panel.add(lblPassword);
+                JLabel lblPassword = new JLabel("Password");
+                lblPassword.setBounds(10, 39, 71, 14);
+                panel.add(lblPassword);
 
-		JButton btnRegister = new JButton("Register");
-		btnRegister.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String user;
-				String pass;
-				user = JOptionPane.showInputDialog("Username: ");
-				pass = JOptionPane.showInputDialog("Password: ");
-				if (user.length() <= 2 || user.length() >= 13
-						|| pass.length() <= 5 || pass.length() >= 15) {
-					user = "";
-					pass = "";
-					
-					JOptionPane.showMessageDialog(null, "Username must contain at least 3 characters and as maximum 12. " +
-							"Password must contain atleast 6 characters and as maximum 14 characters.", "Account Error"
-							, JOptionPane.ERROR_MESSAGE);
-					
-					
-				} else {
-					try {
-						Wini ini = new Wini(new File(Data.ini.getAbsolutePath()));
-						ini.add("Account", "Username", user);
-						ini.add("Account", "Password", Encryption.encrypt(pass));
-						ini.store();
-				} catch (IOException e1){
-					e1.printStackTrace();
-				}
-				}
-			}
-		});
-	
-		btnRegister.setBounds(194, 67, 89, 23);
-		panel.add(btnRegister);
+                JButton btnRegister = new JButton("Register");
+                btnRegister.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent e) {
+                                String user;
+                                String pass;
+                                user = JOptionPane.showInputDialog("Username: ");
+                                pass = JOptionPane.showInputDialog("Password: ");
+                                if (user.length() <= 2 || user.length() >= 13
+                                                || pass.length() <= 5 || pass.length() >= 15) {
+                                        user = "";
+                                        pass = "";
+                                        
+                                        JOptionPane.showMessageDialog(null, "Username must contain at least 3 characters and as maximum 12. " +
+                                                        "Password must contain atleast 6 characters and as maximum 14 characters.", "Account Error"
+                                                        , JOptionPane.ERROR_MESSAGE);
+                                        
+                                        
+                                } else {
+                                        try {
+                                                Wini ini = new Wini(new File(Data.ini.getAbsolutePath()));
+                                                ini.add("Account", "Username", user);
+                                                ini.add("Account", "Password", Encryption.encrypt(pass));
+                                                ini.store();
+                                } catch (IOException e1){
+                                        e1.printStackTrace();
+                                }
+                                }
+                        }
+                });
+        
+                btnRegister.setBounds(194, 67, 89, 23);
+                panel.add(btnRegister);
 
-		window.setVisible(true);
-	}
+                window.setVisible(true);
+        }
 }
