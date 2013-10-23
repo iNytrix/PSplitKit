@@ -94,24 +94,17 @@ public class LoginApplet {
 					
 				} else {
 					try {
-						File writeCreds = new File("C:/JSplit/Creds.txt");
-
-						if (!writeCreds.exists()) {
-							writeCreds.createNewFile();
-						}
-
-						FileWriter fw = new FileWriter(writeCreds
-								.getAbsoluteFile());
-						BufferedWriter bw = new BufferedWriter(fw);
-						bw.write("Username: " + user + "\nPassword: "
-								+ Encryption.encrypt(pass));
-						bw.close();
-					} catch (IOException e1) {
-						e1.printStackTrace();
-					}
+						Wini ini = new Wini(new File(Data.ini.getAbsolutePath()));
+						ini.add("Account", "Username", user);
+						ini.add("Account", "Password", Encryption.encrypt(pass));
+						ini.store();
+				} catch (IOException e1){
+					e1.printStackTrace();
+				}
 				}
 			}
 		});
+	
 		btnRegister.setBounds(194, 67, 89, 23);
 		panel.add(btnRegister);
 
