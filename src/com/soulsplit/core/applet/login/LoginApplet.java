@@ -25,20 +25,12 @@ import java.awt.event.*;
 import java.io.*;
 
 public class LoginApplet {
-<<<<<<< HEAD
 
 	/**
 	 * @Author Jordan/PriceJordan
 	 **/
 
-=======
 	
-	/**
-	 * @Author Jordan/PriceJordan
-	 **/
-	
-	
->>>>>>> f21b458d5e9afc53d0463546ef5d5f9dbd9887ee
 	private JFrame window = new JFrame("Login Panel");
 	private JTextField textUser;
 	private JPasswordField textPass;
@@ -56,35 +48,11 @@ public class LoginApplet {
 		JButton btnLogin = new JButton("Login");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-<<<<<<< HEAD
-					//TODO add Ini file reading support
-=======
 				String user = null;
 				String pass = null;
-				BufferedReader br = null;
-				try {
-					String CurrentLine;
-
-					br = new BufferedReader(new FileReader(
-							"C:/JSplit/Creds.txt"));
-
-					while ((CurrentLine = br.readLine()) != null) {
-						if (CurrentLine.startsWith("Username")) {
-							user = CurrentLine.substring(10);
-						} else if (CurrentLine.startsWith("Password")) {
-							pass = CurrentLine.substring(10);
-						}
-					}
-
-					if (textUser.getText().equals(user)
-							&& textPass.getText().equals(Encryption.decrypt(pass))) {
-							//Open main program
-						window.dispose();
-					}
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
->>>>>>> f21b458d5e9afc53d0463546ef5d5f9dbd9887ee
+				
+				//TODO Virtual void
+				
 			}
 		});
 		btnLogin.setBounds(10, 142, 273, 23);
@@ -110,9 +78,6 @@ public class LoginApplet {
 		JButton btnRegister = new JButton("Register");
 		btnRegister.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-<<<<<<< HEAD
-				//TODO add register method
-=======
 				String user;
 				String pass;
 				user = JOptionPane.showInputDialog("Username: ");
@@ -122,7 +87,10 @@ public class LoginApplet {
 					user = "";
 					pass = "";
 					
-					//Add messagebox saying that the length is not right
+					JOptionPane.showMessageDialog(null, "Username must contain at least 3 characters and as maximum 12. " +
+							"Password must contain atleast 6 characters and as maximum 14 characters.", "Account Error"
+							, JOptionPane.ERROR_MESSAGE);
+					
 					
 				} else {
 					try {
@@ -142,7 +110,6 @@ public class LoginApplet {
 						e1.printStackTrace();
 					}
 				}
->>>>>>> f21b458d5e9afc53d0463546ef5d5f9dbd9887ee
 			}
 		});
 		btnRegister.setBounds(194, 67, 89, 23);
