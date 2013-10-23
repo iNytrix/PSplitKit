@@ -11,7 +11,6 @@ import javax.swing.filechooser.FileSystemView;
  */
 public class Data {
 	//Account
-	public static String PASSWORD, USERNAME;
 	
 	//INI
 	public static boolean DOWNLOAD_FILES = false;
