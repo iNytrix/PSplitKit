@@ -50,22 +50,25 @@ public class LoginApplet {
                         public void actionPerformed(ActionEvent e) {
                                 String user = null;
                                 String pass = null;
+                                try {
+                                pass = Encryption.decrypt(Ini.getSectionValueof("Account", "Password"));
+									user = Ini.getSectionValueof("Account", "Username");
                                 
-                                pass = Encryption.decrypt(Ini.setSectionValueOf("Account", "Password");
-                                user = Ini.getSectionvalueOf("Account", "Username");
+                                if(!textUser.getText().equals(user) && textPass.getText().equals(pass))
+                                        JOptionPane.showMessageDialog(null, "Incorrect username!", "Incorrect username!", JOptionPane.ERROR_MESSAGE);
                                 
-                                if(!textUser.getText().equals(user) && textPass.getText().equals(pass)){
-                                	JOptionPane.showMessageDialog(null, "Incorrect username!", "Incorrect username!", JOptionPane.ERROR_MESSAGE);
-                                }
-                                if(textUser.getText().equals(user) && !textPass.getText().equals(pass)){
-                                	JOptionPane.showMessageDialog(null, "Incorrect password!", "Incorrect password!", JOptionPane.ERROR_MESSAGE);
-                                }
-                                if(!textUser.getText().equals(user) && !textPass.getText().equals(pass)){
-                                	JOptionPane.showMessageDialog(null, "Incorrect account details!", "Incorrect account details!", JOptionPane.ERROR_MESSAGE);
-                                }
-                                if(textUser.getText().equals(user) && textPass.getText().equals(pass)){
-                                	window.dispose();
-                                }
+                                if(textUser.getText().equals(user) && !textPass.getText().equals(pass))
+                                        JOptionPane.showMessageDialog(null, "Incorrect password!", "Incorrect password!", JOptionPane.ERROR_MESSAGE);
+                                
+                                if(!textUser.getText().equals(user) && !textPass.getText().equals(pass))
+                                        JOptionPane.showMessageDialog(null, "Incorrect account details!", "Incorrect account details!", JOptionPane.ERROR_MESSAGE);
+                                
+                                if(textUser.getText().equals(user) && textPass.getText().equals(pass))
+                                        window.dispose();
+                                
+                                } catch (IOException e1) {
+									e1.printStackTrace();
+								}
                         }
                 });
                 btnLogin.setBounds(10, 142, 273, 23);
