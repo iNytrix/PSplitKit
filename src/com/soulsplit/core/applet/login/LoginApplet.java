@@ -25,11 +25,20 @@ import java.awt.event.*;
 import java.io.*;
 
 public class LoginApplet {
+<<<<<<< HEAD
 
 	/**
 	 * @Author Jordan/PriceJordan
 	 **/
 
+=======
+	
+	/**
+	 * @Author Jordan/PriceJordan
+	 **/
+	
+	
+>>>>>>> f21b458d5e9afc53d0463546ef5d5f9dbd9887ee
 	private JFrame window = new JFrame("Login Panel");
 	private JTextField textUser;
 	private JPasswordField textPass;
@@ -47,7 +56,35 @@ public class LoginApplet {
 		JButton btnLogin = new JButton("Login");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+<<<<<<< HEAD
 					//TODO add Ini file reading support
+=======
+				String user = null;
+				String pass = null;
+				BufferedReader br = null;
+				try {
+					String CurrentLine;
+
+					br = new BufferedReader(new FileReader(
+							"C:/JSplit/Creds.txt"));
+
+					while ((CurrentLine = br.readLine()) != null) {
+						if (CurrentLine.startsWith("Username")) {
+							user = CurrentLine.substring(10);
+						} else if (CurrentLine.startsWith("Password")) {
+							pass = CurrentLine.substring(10);
+						}
+					}
+
+					if (textUser.getText().equals(user)
+							&& textPass.getText().equals(Encryption.decrypt(pass))) {
+							//Open main program
+						window.dispose();
+					}
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+>>>>>>> f21b458d5e9afc53d0463546ef5d5f9dbd9887ee
 			}
 		});
 		btnLogin.setBounds(10, 142, 273, 23);
@@ -73,7 +110,39 @@ public class LoginApplet {
 		JButton btnRegister = new JButton("Register");
 		btnRegister.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+<<<<<<< HEAD
 				//TODO add register method
+=======
+				String user;
+				String pass;
+				user = JOptionPane.showInputDialog("Username: ");
+				pass = JOptionPane.showInputDialog("Password: ");
+				if (user.length() <= 2 || user.length() >= 13
+						|| pass.length() <= 5 || pass.length() >= 15) {
+					user = "";
+					pass = "";
+					
+					//Add messagebox saying that the length is not right
+					
+				} else {
+					try {
+						File writeCreds = new File("C:/JSplit/Creds.txt");
+
+						if (!writeCreds.exists()) {
+							writeCreds.createNewFile();
+						}
+
+						FileWriter fw = new FileWriter(writeCreds
+								.getAbsoluteFile());
+						BufferedWriter bw = new BufferedWriter(fw);
+						bw.write("Username: " + user + "\nPassword: "
+								+ Encryption.encrypt(pass));
+						bw.close();
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+				}
+>>>>>>> f21b458d5e9afc53d0463546ef5d5f9dbd9887ee
 			}
 		});
 		btnRegister.setBounds(194, 67, 89, 23);

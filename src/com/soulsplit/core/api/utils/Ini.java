@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 
+import org.ini4j.InvalidFileFormatException;
 import org.ini4j.Wini;
 
 import com.soulsplit.core.Data;
@@ -11,7 +12,7 @@ import com.soulsplit.core.api.Encryption;
 
 public class Ini {
 
-         
+
          public static void setIni() throws IOException
          {
                  Wini ini = new Wini(new File(Data.ini.getAbsolutePath()));
@@ -30,10 +31,20 @@ public class Ini {
                  
          }
          
-         public static void setAccount() throws IOException{
-        		Wini ini = new Wini(new File(Data.ini.getAbsolutePath()));
-        	 ini.add("Account", "Password", Encryption.encrypt(Data.PASSWORD));
-        		ini.add("Account", "Username", Data.USERNAME);
-        		ini.store();
+         public static void setVersion() throws IOException {
+        	 Wini ini = new Wini(new File(Data.ini.getAbsolutePath()));
+        	 ini.put("Settings", "Version", Data.MAJOR_VERSION + "." + Data.MINOR_VERSION);
+        	 ini.store();
+         }
+         
+         public static String getVersion(){
+        	 Wini ini = null;
+			try {
+				ini = new Wini(new File(Data.ini.getAbsolutePath()));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+        	 return ini.get("Settings", "Version");
          }
 }
