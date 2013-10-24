@@ -17,7 +17,7 @@ import com.soulsplit.core.updater.Updater;
 public class Splashscreen {
 
 	JWindow screen = new JWindow();
-	final JProgressBar bar = new JProgressBar(0, 100); // TODO draw bar
+	final JProgressBar bar = new JProgressBar(0, 100); // TODO draw bar with 2d graphics.
 
 	public Splashscreen() {
 		try {
