@@ -1,5 +1,6 @@
 package com.soulsplit.core.applet.splashscreen;
 
+import java.awt.Cursor;
 import java.net.URL;
 
 import javax.swing.ImageIcon;
@@ -25,6 +26,7 @@ public class Splashscreen {
 					new JLabel("", new ImageIcon(new URL(
 							"http://imgur.com/38o9pCL.png")),
 							SwingConstants.CENTER));
+			screen.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
 			screen.setSize(280, 180);
 			screen.setLocationRelativeTo(null);
 			screen.setVisible(true);
