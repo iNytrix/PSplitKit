@@ -5,7 +5,6 @@ import java.net.*;
 
 
 import com.soulsplit.core.Data;
-import com.soulsplit.core.api.utils.Ini;
 
 /**
  * 
@@ -109,11 +108,6 @@ public class Updater {
 	      System.out.println(m);
 	    }
 	    if (isUpToDate()) {
-	    	try {
-				Ini.setIni();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
 	      setCurrentVersion();
 	    }
 	  }
