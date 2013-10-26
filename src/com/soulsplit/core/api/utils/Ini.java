@@ -17,6 +17,7 @@ public class Ini {
          {
                  Wini ini = new Wini(new File(Data.ini.getAbsolutePath()));
                  ini.put("Settings", "Version", Data.MAJOR_VERSION + "." + Data.MINOR_VERSION);
+                 ini.put("Settings", "Theme", "org.pushingpixels.substance.api.skin.SubstanceGraphiteGlassLookAndFeel");
                  ini.put("Settings", "Download", Data.DOWNLOAD_FILES);
                  ini.put("Account", "Username", "");
                  ini.put("Account", "Password", "");
@@ -42,7 +43,6 @@ public class Ini {
 			try {
 				ini = new Wini(new File(Data.ini.getAbsolutePath()));
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
         	 return ini.get("Settings", "Version");

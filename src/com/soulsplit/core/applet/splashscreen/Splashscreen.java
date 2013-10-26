@@ -18,7 +18,7 @@ import com.soulsplit.core.updater.Updater;
 public class Splashscreen {
 
 	JWindow screen = new JWindow();
-	final JProgressBar bar = new JProgressBar(0, 100); // TODO draw bar
+	final JProgressBar bar = new JProgressBar(0, 100); // TODO draw bar with 2d graphics.
 
 	public Splashscreen() {
 		try {
@@ -36,11 +36,14 @@ public class Splashscreen {
 			if (!Data.dir.exists())
 				Utils.log("Makes");
 					Data.dir.mkdir();
+					Data.res.mkdir();
+					Data.plugin.mkdir();
 
 			if (!Data.ini.exists()) {
 				if (Data.ini.createNewFile())
 					Ini.setIni();
 			}
+			com.soulsplit.core.plugins.api.Utils.getPlugins(".java");
 			Ini.setVersion();
 			Updater.getLatestVersion();
 			screen.dispose();

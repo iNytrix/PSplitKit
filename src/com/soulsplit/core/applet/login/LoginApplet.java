@@ -14,25 +14,19 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-import org.ini4j.InvalidFileFormatException;
 import org.ini4j.Wini;
 import org.pushingpixels.substance.api.SubstanceConstants;
 import org.pushingpixels.substance.api.SubstanceLookAndFeel;
-import org.pushingpixels.substance.api.skin.SubstanceBusinessBlackSteelLookAndFeel;
 import org.pushingpixels.substance.api.skin.SubstanceGraphiteGlassLookAndFeel;
 
 import com.soulsplit.core.Data;
 import com.soulsplit.core.api.Encryption;
 import com.soulsplit.core.api.utils.Ini;
 import com.soulsplit.core.applet.main.MainPanel;
-import com.soulsplit.core.applet.main.loader.Loader;
 
-import java.awt.*;
 import javax.swing.*;
 
 import java.awt.event.*;
-import java.io.*;
-import java.lang.reflect.InvocationTargetException;
 
 public class LoginApplet {
 
@@ -51,19 +45,26 @@ public class LoginApplet {
 			@Override
 			public void run() {
 				try {
-					UIManager
-							.setLookAndFeel(new SubstanceGraphiteGlassLookAndFeel());
+					try {
+						UIManager.setLookAndFeel(Ini.getSectionValueof(
+								"Settings", "Theme"));
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
 					UIManager
 							.put(SubstanceLookAndFeel.TABBED_PANE_CONTENT_BORDER_KIND,
 									SubstanceConstants.TabContentPaneBorderKind.SINGLE_FULL);
 
 					JFrame.setDefaultLookAndFeelDecorated(true);
 					JDialog.setDefaultLookAndFeelDecorated(true);
-				} catch (UnsupportedLookAndFeelException e) {
+
+				} catch (ClassNotFoundException | IllegalAccessException
+						| InstantiationException
+						| UnsupportedLookAndFeelException e) {
 					e.printStackTrace();
 				}
-				 JFrame.setDefaultLookAndFeelDecorated(true);
-                 JPopupMenu.setDefaultLightWeightPopupEnabled(false);
+				JFrame.setDefaultLookAndFeelDecorated(true);
+				JPopupMenu.setDefaultLightWeightPopupEnabled(false);
 				window.setSize(299, 200);
 				window.setLocationRelativeTo(null);
 				window.setResizable(false);
@@ -112,7 +113,7 @@ public class LoginApplet {
 							e1.printStackTrace();
 						}
 						try {
-							Loader p = new Loader();
+							MainPanel p = new MainPanel();
 						} catch (Exception e1) {
 							e1.printStackTrace();
 						}
@@ -144,6 +145,7 @@ public class LoginApplet {
 					public void actionPerformed(ActionEvent e) {
 						String user;
 						String pass;
+						JPasswordField passpane = new JPasswordField();
 						user = JOptionPane.showInputDialog("Username: ");
 						pass = JOptionPane.showInputDialog("Password: ");
 						if (user.length() <= 2 || user.length() >= 13

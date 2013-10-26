@@ -25,6 +25,7 @@ public class Data {
 	public static int MINOR_VERSION = 15;
 	
 	//Files
+	public static File plugin = new File("C:/" + APP_NAME + "/plugins");
 	public static File dir = new File("C:/" + APP_NAME); 
 	public static File res = new File("C:/" + APP_NAME + "/resources");
 	public static String VERSION_URL = "https://dl.dropbox.com/s/fnalrn16h651drj/version.txt";
