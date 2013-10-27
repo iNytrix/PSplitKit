@@ -1,7 +1,6 @@
 package com.soulsplit.core.applet.main;
 
 import java.applet.Applet;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -16,17 +15,13 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import org.pushingpixels.substance.api.SubstanceConstants;
 import org.pushingpixels.substance.api.SubstanceLookAndFeel;
-import org.pushingpixels.substance.api.skin.SubstanceGraphiteGlassLookAndFeel;
 
 import com.soulsplit.core.Data;
 import com.soulsplit.core.api.utils.Ini;
-import com.soulsplit.core.api.utils.Utils;
-import com.soulsplit.loader.Main;
 
 public class MainPanel extends JFrame {
 	JFrame frame = new JFrame(Data.APP_NAME + " " + Data.CODENAME + " "
