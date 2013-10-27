@@ -38,6 +38,7 @@ public class Splashscreen {
 					Data.dir.mkdir();
 					Data.res.mkdir();
 					Data.plugin.mkdir();
+					Data.raw.mkdir();
 
 			if (!Data.ini.exists()) {
 				if (Data.ini.createNewFile())
