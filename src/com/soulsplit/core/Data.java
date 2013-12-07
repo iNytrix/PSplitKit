@@ -26,9 +26,9 @@ public class Data {
 	
 	//Files
 	public static File dir = new File("C:/" + APP_NAME); 
-	public static File plugin = new File(dir+ "/plugins");
+	public static File plugin = new File(dir + "/plugins");
 	public static File raw = new File(plugin + "/raw");
-	public static File res = new File(dir"/resources");
+	public static File res = new File(dir +"/resources");
 	public static String VERSION_URL = "https://dl.dropbox.com/s/fnalrn16h651drj/version.txt";
 	public static File ini = new File(dir+ "/settings.ini");
 	
